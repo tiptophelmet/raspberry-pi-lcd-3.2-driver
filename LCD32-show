@@ -43,13 +43,24 @@ cd ../../
 sudo mkdir -p /usr/share/X11/xorg.conf.d
 
 # Create backup for /etc/rc.local
-sudo cp /etc/rc.local /etc/rc.local.rpi-lcd-backup
+if [ ! -f /etc/rc.local.rpi-lcd-backup ]; then
+    # If it doesn't exist, perform the copy operation
+	sudo cp /etc/rc.local /etc/rc.local.rpi-lcd-backup
+else
+    echo "Backup file (/etc/rc.local.rpi-lcd-backup) already exists."
+fi
 
 # Append rc.local-gpio content to /etc/rc.local
 sudo cat ./boot/etc/rc.local-gpio >> /etc/rc.local
 
 # Create backup for /boot/config.txt
-sudo cp /boot/config.txt /boot/config.txt.rpi-lcd-backup
+if [ ! -f /boot/config.txt.rpi-lcd-backup ]; then
+    # If it doesn't exist, perform the copy operation
+	sudo cp /boot/config.txt /boot/config.txt.rpi-lcd-backup
+else
+    echo "Backup file (/boot/config.txt.rpi-lcd-backup) already exists."
+fi
+
 
 # Calibrate display & rotate to specific degrees
 if test "$1" = "0" -o "$#" = "0" -o "$2" = "0";then
@@ -75,13 +86,24 @@ sudo cp ./waveshare32b-overlay.dtb /boot/overlays/waveshare32b.dtbo
 sudo cp ./waveshare32b-overlay.dtb /boot/overlays/
 
 # Create backup for /boot/cmdline.txt
-sudo cp /boot/cmdline.txt /boot/cmdline.txt.rpi-lcd-backup
+if [ ! -f /boot/cmdline.txt.rpi-lcd-backup ]; then
+    sudo cp /boot/cmdline.txt /boot/cmdline.txt.rpi-lcd-backup
+else
+    echo "Backup file (/boot/cmdline.txt.rpi-lcd-backup) already exists."
+fi
 
 # Set up /boot/cmdline.txt
 sudo cp ./cmdline.txt /boot/
 
 # Create backup for /etc/inittab
-sudo cp /etc/inittab /etc/inittab.rpi-lcd-backup
+
+# Check if the backup file does not exist
+if [ ! -f /etc/inittab.rpi-lcd-backup ]; then
+    # If it doesn't exist, perform the copy operation
+    sudo cp /etc/inittab /etc/inittab.rpi-lcd-backup
+else
+    echo "Backup file (/etc/inittab.rpi-lcd-backup) already exists."
+fi
 
 # Set up /etc/inittab
 sudo cp ./inittab /etc/
