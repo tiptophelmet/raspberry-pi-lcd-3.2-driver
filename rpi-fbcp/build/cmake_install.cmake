@@ -1,4 +1,4 @@
-# Install script for directory: /home/pi/LCD-show/rpi-fbcp
+# Install script for directory: /home/tiptophelmet/raspberry-pi-lcd-3.2-driver/rpi-fbcp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/pi/LCD-show/rpi-fbcp/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/tiptophelmet/raspberry-pi-lcd-3.2-driver/rpi-fbcp/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

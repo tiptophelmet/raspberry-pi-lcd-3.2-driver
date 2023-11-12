@@ -24,6 +24,9 @@ sudo apt-get install cmake -y
 # Install software-properties-common
 sudo apt install software-properties-common -y
 
+# Install launchpadlib to support `add-apt-repository`
+sudo apt-get install python3-launchpadlib
+
 # Install xinput-calibrator
 sudo add-apt-repository ppa:tias/xinput-calibrator-ppa
 sudo apt update -y
@@ -43,7 +46,7 @@ sudo mkdir -p /usr/share/X11/xorg.conf.d
 sudo cp /etc/rc.local /etc/rc.local.rpi-lcd-backup
 
 # Append rc.local-gpio content to /etc/rc.local
-sudo cat ./etc/rc.local-gpio >> /etc/rc.local
+sudo cat ./boot/etc/rc.local-gpio >> /etc/rc.local
 
 # Create backup for /boot/config.txt
 sudo cp /boot/config.txt /boot/config.txt.rpi-lcd-backup
