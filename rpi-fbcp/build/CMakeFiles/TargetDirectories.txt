@@ -1,3 +1,0 @@
-/home/tiptophelmet/raspberry-pi-lcd-3.2-driver/rpi-fbcp/build/CMakeFiles/rebuild_cache.dir
-/home/tiptophelmet/raspberry-pi-lcd-3.2-driver/rpi-fbcp/build/CMakeFiles/edit_cache.dir
-/home/tiptophelmet/raspberry-pi-lcd-3.2-driver/rpi-fbcp/build/CMakeFiles/fbcp.dir
