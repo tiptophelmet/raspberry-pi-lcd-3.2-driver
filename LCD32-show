@@ -33,9 +33,12 @@ sudo apt update -y
 sudo apt install xinput-calibrator -y 
 
 # Build & install Raspberry Pi Framebuffer Copy
-cd ./rpi-fbcp/build/
+cd ./rpi-fbcp/
+mkdir build
+cd build
 sudo cmake ..
 sudo make
+sudo chmod +x fbcp
 sudo install fbcp /usr/local/bin/fbcp -y
 
 # Create xorg conf directory if it does not exist
