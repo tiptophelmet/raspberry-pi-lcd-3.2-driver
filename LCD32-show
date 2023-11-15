@@ -12,6 +12,10 @@ sudo apt update -y
 
 # Install & configure xorg
 sudo apt install xserver-xorg-input-evdev -y
+
+# Create xorg conf directory if it does not exist
+sudo mkdir -p /usr/share/X11/xorg.conf.d
+
 sudo cp -rf /usr/share/X11/xorg.conf.d/10-evdev.conf /usr/share/X11/xorg.conf.d/45-evdev.conf
 sudo cp -rf ./usr/share/X11/xorg.conf.d/99-fbturbo.conf  /usr/share/X11/xorg.conf.d/99-fbturbo.conf
 
@@ -40,9 +44,7 @@ sudo make
 sudo chmod +x fbcp
 sudo install fbcp /usr/local/bin/fbcp
 
-# Create xorg conf directory if it does not exist
 cd ../../
-sudo mkdir -p /usr/share/X11/xorg.conf.d
 
 # Create backup for /etc/rc.local
 if [ ! -f /etc/rc.local.rpi-lcd-backup ]; then
