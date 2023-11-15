@@ -39,7 +39,7 @@ cd build
 sudo cmake ..
 sudo make
 sudo chmod +x fbcp
-sudo install fbcp /usr/local/bin/fbcp -y
+sudo install fbcp /usr/local/bin/fbcp
 
 # Create xorg conf directory if it does not exist
 cd ../../
