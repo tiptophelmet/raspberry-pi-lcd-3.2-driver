@@ -11,7 +11,7 @@ done
 sudo apt update -y
 
 # Install & configure xorg
-sudo apt install xserver-xorg-input-evdev -y
+sudo apt install xserver-xorg-legacy xserver-xorg-input-evdev -y
 
 # Create xorg conf directory if it does not exist
 sudo mkdir -p /usr/share/X11/xorg.conf.d
@@ -56,6 +56,8 @@ fi
 
 # Append rc.local-gpio content to /etc/rc.local
 sudo cat ./boot/etc/rc.local-gpio >> /etc/rc.local
+
+sudo cp ./etc/X11/Xwrapper.config /etc/X11/Xwrapper.config
 
 # Create backup for /boot/config.txt
 if [ ! -f /boot/config.txt.rpi-lcd-backup ]; then
