@@ -5,7 +5,7 @@ sudo apt update -y
 sudo apt install software-properties-common cmake xserver-xorg-input-evdev xinput-calibrator -y
 
 sudo cp -rf /usr/share/X11/xorg.conf.d/10-evdev.conf /usr/share/X11/xorg.conf.d/45-evdev.conf
-sudo cp -rf ./usr/share/X11/xorg.conf.d/99-fbturbo.conf  /usr/share/X11/xorg.conf.d/99-fbturbo.~
+sudo cp -rf ./etc/X11/xorg.conf.d/99-fbturbo.conf /etc/X11/xorg.conf.d/99-fbturbo.conf
 
 # Build & install Raspberry Pi Framebuffer Copy
 cd ./rpi-fbcp/
