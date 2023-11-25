@@ -27,7 +27,7 @@ else
 fi
 
 # Append rc.local-gpio content to /etc/rc.local
-sudo cp ./boot/etc/rc.local-gpio /etc/rc.local
+sudo cp ./etc/rc.local-gpio /etc/rc.local
 
 sudo cp ./etc/X11/Xwrapper.config /etc/X11/Xwrapper.config
 
