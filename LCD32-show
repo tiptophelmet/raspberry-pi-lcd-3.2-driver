@@ -1,12 +1,3 @@
-i=1
-for lines in `cat ./boot/mark`
-do
-  case ${i} in
-  1) var1=${lines};;
-  esac
-  i=`expr ${i} + 1`
-done
-
 # Fetch repositories
 sudo apt update -y
 
@@ -19,29 +10,22 @@ sudo mkdir -p /usr/share/X11/xorg.conf.d
 sudo cp -rf /usr/share/X11/xorg.conf.d/10-evdev.conf /usr/share/X11/xorg.conf.d/45-evdev.conf
 sudo cp -rf ./usr/share/X11/xorg.conf.d/99-fbturbo.conf  /usr/share/X11/xorg.conf.d/99-fbturbo.conf
 
-echo "1" > ./boot/mark
-
 # Install cmake
 sudo apt-get install cmake -y
 
 # Install software-properties-common
 sudo apt install software-properties-common -y
 
-# Install launchpadlib to support `add-apt-repository`
-sudo apt-get install python3-launchpadlib
-
 # Install xinput-calibrator
-sudo add-apt-repository ppa:tias/xinput-calibrator-ppa
-sudo apt update -y
 sudo apt install xinput-calibrator -y 
 
 # Build & install Raspberry Pi Framebuffer Copy
 cd ./rpi-fbcp/
 mkdir build
 cd build
-sudo cmake ..
-sudo make
-sudo chmod +x fbcp
+cmake ..
+make
+chmod +x fbcp
 sudo install fbcp /usr/local/bin/fbcp
 
 cd ../../
@@ -55,7 +39,7 @@ else
 fi
 
 # Append rc.local-gpio content to /etc/rc.local
-sudo cat ./boot/etc/rc.local-gpio >> /etc/rc.local
+sudo cp ./boot/etc/rc.local-gpio /etc/rc.local
 
 sudo cp ./etc/X11/Xwrapper.config /etc/X11/Xwrapper.config
 
@@ -100,18 +84,5 @@ fi
 
 # Set up /boot/cmdline.txt
 sudo cp ./cmdline.txt /boot/
-
-# Create backup for /etc/inittab
-
-# Check if the backup file does not exist
-if [ ! -f /etc/inittab.rpi-lcd-backup ]; then
-    # If it doesn't exist, perform the copy operation
-    sudo cp /etc/inittab /etc/inittab.rpi-lcd-backup
-else
-    echo "Backup file (/etc/inittab.rpi-lcd-backup) already exists."
-fi
-
-# Set up /etc/inittab
-sudo cp ./inittab /etc/
 
 sudo reboot
