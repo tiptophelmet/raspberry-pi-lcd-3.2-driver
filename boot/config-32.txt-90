@@ -64,3 +64,7 @@ hdmi_mode=87
 hdmi_cvt 480 320 60 6 0 0 0
 hdmi_drive=2
 display_rotate=1
+
+# Enable DRM VC4 V3D driver
+dtoverlay=vc4-kms-v3d
+max_framebuffers=2
