@@ -86,4 +86,4 @@ fi
 # Set up /boot/cmdline.txt
 sudo cp ./cmdline.txt /boot/
 
-sudo reboot
+echo "--- Please, restart to finish LCD driver installation ---"
