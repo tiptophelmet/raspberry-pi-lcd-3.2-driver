@@ -1,24 +1,11 @@
 # Fetch repositories
 sudo apt update -y
 
-# Install & configure xorg
-sudo apt install xserver-xorg-legacy xserver-xorg-input-evdev -y
-
-# Create xorg conf directory if it does not exist
-sudo mkdir -p /usr/share/X11/xorg.conf.d
+# Install dependencies
+sudo apt install software-properties-common cmake xserver-xorg-input-evdev xinput-calibrator -y
 
 sudo cp -rf /usr/share/X11/xorg.conf.d/10-evdev.conf /usr/share/X11/xorg.conf.d/45-evdev.conf
-sudo cp -rf ./usr/share/X11/xorg.conf.d/99-fbturbo.conf  /usr/share/X11/xorg.conf.d/99-fbturbo.conf
-sudo rm -rf /usr/share/X11/xorg.conf.d/99-fbturbo.~
-
-# Install cmake
-sudo apt-get install cmake -y
-
-# Install software-properties-common
-sudo apt install software-properties-common -y
-
-# Install xinput-calibrator
-sudo apt install xinput-calibrator -y 
+sudo cp -rf ./usr/share/X11/xorg.conf.d/99-fbturbo.conf  /usr/share/X11/xorg.conf.d/99-fbturbo.~
 
 # Build & install Raspberry Pi Framebuffer Copy
 cd ./rpi-fbcp/
@@ -84,6 +71,6 @@ else
 fi
 
 # Set up /boot/cmdline.txt
-sudo cp ./cmdline.txt /boot/
+sudo cp ./boot/cmdline.txt /boot/
 
 echo "--- Please, restart to finish LCD driver installation ---"
