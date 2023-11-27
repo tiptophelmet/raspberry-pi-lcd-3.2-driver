@@ -8,7 +8,7 @@ sudo cp -rf /usr/share/X11/xorg.conf.d/10-evdev.conf /usr/share/X11/xorg.conf.d/
 sudo cp -rf ./etc/X11/xorg.conf.d/99-fbturbo.conf /etc/X11/xorg.conf.d/99-fbturbo.conf
 
 # Build & install Raspberry Pi Framebuffer Copy
-cd ./rpi-fbcp/
+cd ./usr/local/bin/make-fbcp/
 mkdir build
 cd build
 cmake ..
@@ -16,7 +16,8 @@ make
 chmod +x fbcp
 sudo install fbcp /usr/local/bin/fbcp
 
-cd ../../
+# Go back to the root
+cd ~/raspberry-pi-lcd-driver
 
 # Create backup for /etc/rc.local
 if [ ! -f /etc/rc.local.rpi-lcd-backup ]; then
@@ -60,8 +61,8 @@ elif test "$1" = "270" -o "$2" = "270"; then
 fi
 
 # Add display overlays
-sudo cp ./waveshare32b-overlay.dtb /boot/overlays/waveshare32b.dtbo
-sudo cp ./waveshare32b-overlay.dtb /boot/overlays/
+sudo cp ./boot/overlays/waveshare32b-overlay.dtb /boot/overlays/waveshare32b.dtbo
+sudo cp ./boot/overlays/waveshare32b-overlay.dtb /boot/overlays/
 
 # Create backup for /boot/cmdline.txt
 if [ ! -f /boot/cmdline.txt.rpi-lcd-backup ]; then
