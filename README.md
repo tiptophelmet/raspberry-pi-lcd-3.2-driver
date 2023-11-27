@@ -26,4 +26,10 @@ EN: https://www.waveshare.com/wiki/3.2inch_RPi_LCD_(B)
 
 ### Driver install:
 
-sudo ./LCD32-show
+`sudo ./LCD32-show <rotation degree>`
+
+Possible values for rotation degree:
+- `0`
+- `90`
+- `180`
+- `270`
