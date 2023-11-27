@@ -1,3 +1,5 @@
+#!/usr/bin/sh
+
 # Fetch repositories
 sudo apt update -y
 
