@@ -19,7 +19,7 @@ chmod +x fbcp
 sudo install fbcp /usr/local/bin/fbcp
 
 # Go back to the root
-cd ~/raspberry-pi-lcd-driver
+cd ../../../../../
 
 # Create backup for /etc/rc.local
 if [ ! -f /etc/rc.local.rpi-lcd-backup ]; then
